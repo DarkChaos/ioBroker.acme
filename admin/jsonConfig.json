@@ -128,8 +128,16 @@
                     "noTranslation": true,
                     "options": [
                         {
+                            "label": "Azure DNS",
+                            "value": "acme-dns-01-azure"
+                        },
+                        {
                             "label": "CloudFlare",
                             "value": "acme-dns-01-cloudflare"
+                        },
+                        {
+                            "label": "deSEC",
+                            "value": "acme-dns-01-desec"
                         },
                         {
                             "label": "Digital Ocean",
@@ -144,20 +152,44 @@
                             "value": "acme-dns-01-duckdns"
                         },
                         {
-                            "label": "GoDaddy",
-                            "value": "acme-dns-01-godaddy"
+                            "label": "Dynu",
+                            "value": "acme-dns-01-dynu"
+                        },
+                        {
+                            "label": "eDNS.de",
+                            "value": "acme-dns-01-ednsde"
                         },
                         {
                             "label": "Gandi",
                             "value": "acme-dns-01-gandi"
                         },
                         {
-                            "label": "Namecheap",
-                            "value": "acme-dns-01-namecheap"
+                            "label": "GoDaddy",
+                            "value": "acme-dns-01-godaddy"
+                        },
+                        {
+                            "label": "Hetzner",
+                            "value": "acme-dns-01-hetzner"
+                        },
+                        {
+                            "label": "IONOS",
+                            "value": "acme-dns-01-ionos"
                         },
                         {
                             "label": "Name.com",
                             "value": "acme-dns-01-namedotcom"
+                        },
+                        {
+                            "label": "Namecheap",
+                            "value": "acme-dns-01-namecheap"
+                        },
+                        {
+                            "label": "Netcup",
+                            "value": "acme-dns-01-netcup"
+                        },
+                        {
+                            "label": "PowerDNS",
+                            "value": "acme-dns-01-powerdns"
                         },
                         {
                             "label": "Route53 (AWS)",
@@ -166,38 +198,6 @@
                         {
                             "label": "Vultr",
                             "value": "acme-dns-01-vultr"
-                        },
-                        {
-                            "label": "Netcup",
-                            "value": "acme-dns-01-netcup"
-                        },
-                        {
-                            "label": "eDNS.de",
-                            "value": "acme-dns-01-ednsde"
-                        },
-                        {
-                            "label": "IONOS",
-                            "value": "acme-dns-01-ionos"
-                        },
-                        {
-                            "label": "Hetzner",
-                            "value": "acme-dns-01-hetzner"
-                        },
-                        {
-                            "label": "Dynu",
-                            "value": "acme-dns-01-dynu"
-                        },
-                        {
-                            "label": "deSEC",
-                            "value": "acme-dns-01-desec"
-                        },
-                        {
-                            "label": "PowerDNS",
-                            "value": "acme-dns-01-powerdns"
-                        },
-                        {
-                            "label": "Azure DNS",
-                            "value": "acme-dns-01-azure"
                         }
                     ],
                     "xs": 12,
