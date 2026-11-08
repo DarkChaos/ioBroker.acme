@@ -24,6 +24,7 @@ import { createChallengeShim, type ChallengeShim } from './lib/greenlock-challen
 import { create as createIonosChallenge } from './lib/dns-01-ionos';
 import { create as createHetznerChallenge } from './lib/dns-01-hetzner';
 import { create as createDynuChallenge } from './lib/dns-01-dynu';
+import { create as createAzureChallenge } from './lib/dns-01-azure';
 
 /**
  * DNS-01 providers implemented in this adapter because no acme-dns-01-*
@@ -34,6 +35,7 @@ const localDns01Modules: Record<string, (options: any) => unknown> = {
     'acme-dns-01-ionos': createIonosChallenge,
     'acme-dns-01-hetzner': createHetznerChallenge,
     'acme-dns-01-dynu': createDynuChallenge,
+    'acme-dns-01-azure': createAzureChallenge,
 };
 import type { AcmeAdapterConfig } from './types';
 
@@ -253,6 +255,7 @@ class AcmeAdapter extends utils.Adapter {
                 case 'acme-dns-01-ionos':
                 case 'acme-dns-01-hetzner':
                 case 'acme-dns-01-dynu':
+                case 'acme-dns-01-azure':
                     // Implemented in this repository, not on npm. None reports a
                     // propagation delay of its own, so the generic default from
                     // io-package.json applies.
@@ -276,7 +279,7 @@ class AcmeAdapter extends utils.Adapter {
 
             // Log dns-01 options with sensitive values redacted
             const safeOpts = { ...dns01Options };
-            const sensitiveOptKeys = ['apiKey', 'apiPassword', 'key', 'secret', 'token'];
+            const sensitiveOptKeys = ['apiKey', 'apiPassword', 'clientSecret', 'key', 'secret', 'token'];
             for (const k of sensitiveOptKeys) {
                 if (safeOpts[k]) {
                     safeOpts[k] = '***REDACTED***';

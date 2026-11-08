@@ -52,6 +52,7 @@ const greenlock_challenge_shim_1 = require("./lib/greenlock-challenge-shim");
 const dns_01_ionos_1 = require("./lib/dns-01-ionos");
 const dns_01_hetzner_1 = require("./lib/dns-01-hetzner");
 const dns_01_dynu_1 = require("./lib/dns-01-dynu");
+const dns_01_azure_1 = require("./lib/dns-01-azure");
 /**
  * DNS-01 providers implemented in this adapter because no acme-dns-01-*
  * package exists for them on npm. They follow the same plugin contract, so
@@ -61,6 +62,7 @@ const localDns01Modules = {
     'acme-dns-01-ionos': dns_01_ionos_1.create,
     'acme-dns-01-hetzner': dns_01_hetzner_1.create,
     'acme-dns-01-dynu': dns_01_dynu_1.create,
+    'acme-dns-01-azure': dns_01_azure_1.create,
 };
 const accountObjectId = 'account';
 // Renew 7 days before expiry
@@ -243,6 +245,7 @@ class AcmeAdapter extends utils.Adapter {
                 case 'acme-dns-01-ionos':
                 case 'acme-dns-01-hetzner':
                 case 'acme-dns-01-dynu':
+                case 'acme-dns-01-azure':
                     // Implemented in this repository, not on npm. None reports a
                     // propagation delay of its own, so the generic default from
                     // io-package.json applies.
@@ -265,7 +268,7 @@ class AcmeAdapter extends utils.Adapter {
             }
             // Log dns-01 options with sensitive values redacted
             const safeOpts = { ...dns01Options };
-            const sensitiveOptKeys = ['apiKey', 'apiPassword', 'key', 'secret', 'token'];
+            const sensitiveOptKeys = ['apiKey', 'apiPassword', 'clientSecret', 'key', 'secret', 'token'];
             for (const k of sensitiveOptKeys) {
                 if (safeOpts[k]) {
                     safeOpts[k] = '***REDACTED***';

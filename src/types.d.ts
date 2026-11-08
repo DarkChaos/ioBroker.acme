@@ -41,6 +41,7 @@ export interface AcmeAdapterConfig {
         | 'acme-dns-01-ionos'
         | 'acme-dns-01-hetzner'
         | 'acme-dns-01-dynu'
+        | 'acme-dns-01-azure'
         | 'acme-dns-01-desec'
         | 'acme-dns-01-powerdns';
     dns01ObaseUrl: string;
@@ -55,6 +56,10 @@ export interface AcmeAdapterConfig {
     dns01PpropagationDelay: number;
     dns01OcustomerNumber: string;
     dns01OapiPassword: string;
+    dns01OtenantId: string;
+    dns01OclientId: string;
+    dns01OclientSecret: string;
+    dns01OsubscriptionId: string;
     collections: Array<{
         id: string;
         commonName: string;

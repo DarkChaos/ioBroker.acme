@@ -118,9 +118,11 @@ The values are public by design - they are served over plain HTTP to anyone who 
 
 Various DNS-01 challenge plugins are implemented for popular domain hosting platforms.
 
+For **Azure DNS**, select `Azure DNS` and provide the service principal's tenant ID, client ID, and client secret, plus the subscription ID that contains the public DNS zone. The service principal needs the **DNS Zone Contributor** role at subscription scope so the adapter can discover zones and update TXT records.
+
 #### References
 
-See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
+See [ACME.js](https://www.npmjs.com/package/acme) for more details.
 
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -131,6 +133,7 @@ See [AMCS.js](https://www.npmjs.com/package/acme) for more details.
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22.19.0 now
+- (@DarkChaos) Added support for Azure DNS-01 challenges
 ### 5.0.2 (2026-09-08)
 - (@GermanBluefox) HTTP-01 challenges are now published in `acme.<instance>.info.httpChallenges` so `web`/`admin` can serve them; adapters on port 80 are only stopped when nothing answers there (#85)
 - (@GermanBluefox) Added the "HTTP-01 challenge delivery" setting to choose between automatic, an own challenge server, and an external responder

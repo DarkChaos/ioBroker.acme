@@ -194,6 +194,10 @@
                         {
                             "label": "PowerDNS",
                             "value": "acme-dns-01-powerdns"
+                        },
+                        {
+                            "label": "Azure DNS",
+                            "value": "acme-dns-01-azure"
                         }
                     ],
                     "xs": 12,
@@ -350,6 +354,50 @@
                     "lg": 4,
                     "xl": 4,
                     "hidden": "!data.dns01Active || data.dns01Module != 'acme-dns-01-netcup'"
+                },
+                "dns01OtenantId": {
+                    "newLine": true,
+                    "type": "text",
+                    "label": "Azure Tenant ID",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4,
+                    "hidden": "!data.dns01Active || data.dns01Module != 'acme-dns-01-azure'"
+                },
+                "dns01OclientId": {
+                    "newLine": true,
+                    "type": "text",
+                    "label": "Azure Client ID",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4,
+                    "hidden": "!data.dns01Active || data.dns01Module != 'acme-dns-01-azure'"
+                },
+                "dns01OclientSecret": {
+                    "newLine": true,
+                    "type": "password",
+                    "label": "Azure Client Secret",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4,
+                    "hidden": "!data.dns01Active || data.dns01Module != 'acme-dns-01-azure'"
+                },
+                "dns01OsubscriptionId": {
+                    "newLine": true,
+                    "type": "text",
+                    "label": "Azure Subscription ID",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4,
+                    "hidden": "!data.dns01Active || data.dns01Module != 'acme-dns-01-azure'"
                 }
             }
         },
